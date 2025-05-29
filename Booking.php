@@ -5,6 +5,7 @@ require_once 'dbh.inc.php';
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+// Sanitize helper
 function clean_input($data) {
     return htmlspecialchars(strip_tags(trim($data)));
 }
@@ -48,14 +49,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $currentDate = new DateTime();
     $currentDate->setTime(0, 0, 0); // Reset time for accurate date comparison
 
-    if (!$dateObj || $dateObj < $currentDate) { // Changed to $currentDate to disallow past dates
+    if (!$dateObj || $dateObj < $currentDate) {
         $_SESSION['flash'] = ['type'=>'error','message'=>'Event date must be in the future.'];
         header('Location: Booking.php');
         exit;
     }
-    // New check: Disallow same-day booking
+    // Disallow same-day booking (already implemented)
     if ($dateObj->format('Y-m-d') === $currentDate->format('Y-m-d')) {
         $_SESSION['flash'] = ['type'=>'error','message'=>'Same-day bookings are not allowed. Please select a future date.'];
+        header('Location: Booking.php');
+        exit;
+    }
+
+    // New check: Prevent booking if the date is already booked 
+    $checkStmt = $conn->prepare("SELECT COUNT(*) FROM bookings WHERE event_date = ?");
+    $checkStmt->bind_param("s", $event_date);
+    $checkStmt->execute();
+    $checkStmt->bind_result($count);
+    $checkStmt->fetch();
+    $checkStmt->close();
+
+    if ($count > 0) {
+        $_SESSION['flash'] = ['type'=>'error','message'=>'This date is already fully booked. Please choose another date.'];
         header('Location: Booking.php');
         exit;
     }
@@ -71,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $success = $stmt->execute();
 
     if ($success) {
-        unset($_SESSION['pending_booking']); 
+        unset($_SESSION['pending_booking']); // ✅ Clear pending form
         $_SESSION['flash'] = ['type'=>'success','message'=>'Thank you! Your booking has been received.'];
     } else {
         $_SESSION['flash'] = ['type'=>'error','message'=>'Oops! Something went wrong. Please try again.'];
@@ -81,6 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
+// Auto-submit saved booking after login
 if ($isLoggedIn && isset($_SESSION['pending_booking'])) {
     $pending = $_SESSION['pending_booking'];
     echo '<form id="autoSubmit" method="POST" action="Booking.php">';
@@ -261,7 +277,7 @@ if ($flash) unset($_SESSION['flash']);
       if (eventDate === '' || selectedDate < today) {
         $('#event-date-error').text('Pick a future date').addClass('show');
         hasErrors = true;
-      } else if (selectedDate.getTime() === today.getTime()) { // Check for same day
+      } else if (selectedDate.getTime() === today.getTime()) {
         $('#event-date-error').text('Same-day bookings are not allowed.').addClass('show');
         hasErrors = true;
       }
