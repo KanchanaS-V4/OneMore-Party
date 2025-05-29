@@ -1,11 +1,10 @@
 <?php
 session_start();
-require_once 'dbh.inc.php'; // Your DB connection
+require_once 'dbh.inc.php'; 
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// ✅ Sanitize helper
 function clean_input($data) {
     return htmlspecialchars(strip_tags(trim($data)));
 }
@@ -46,11 +45,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $dateObj = DateTime::createFromFormat('Y-m-d', $event_date);
-    if (!$dateObj || $dateObj < new DateTime()) {
+    $currentDate = new DateTime();
+    $currentDate->setTime(0, 0, 0); // Reset time for accurate date comparison
+
+    if (!$dateObj || $dateObj < $currentDate) { // Changed to $currentDate to disallow past dates
         $_SESSION['flash'] = ['type'=>'error','message'=>'Event date must be in the future.'];
         header('Location: Booking.php');
         exit;
     }
+    // New check: Disallow same-day booking
+    if ($dateObj->format('Y-m-d') === $currentDate->format('Y-m-d')) {
+        $_SESSION['flash'] = ['type'=>'error','message'=>'Same-day bookings are not allowed. Please select a future date.'];
+        header('Location: Booking.php');
+        exit;
+    }
+
 
     // Insert into DB
     $stmt = $conn->prepare("
@@ -62,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $success = $stmt->execute();
 
     if ($success) {
-        unset($_SESSION['pending_booking']); // ✅ Clear pending form
+        unset($_SESSION['pending_booking']); 
         $_SESSION['flash'] = ['type'=>'success','message'=>'Thank you! Your booking has been received.'];
     } else {
         $_SESSION['flash'] = ['type'=>'error','message'=>'Oops! Something went wrong. Please try again.'];
@@ -72,7 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-// ✅ Auto-submit saved booking after login
 if ($isLoggedIn && isset($_SESSION['pending_booking'])) {
     $pending = $_SESSION['pending_booking'];
     echo '<form id="autoSubmit" method="POST" action="Booking.php">';
@@ -95,11 +103,10 @@ if ($flash) unset($_SESSION['flash']);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Now - One More Party</title>
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="Booking.css">
     <style>
-          /* Flash/toast styles */
+            /* Flash/toast styles */
     #flash {
       position: fixed;
       top: 1rem;
@@ -120,7 +127,7 @@ if ($flash) unset($_SESSION['flash']);
       transform: translateX(-50%) translateY(0);
     }
     #flash.success { background: #28a745; }
-    #flash.error   { background: #dc3545; }
+    #flash.error    { background: #dc3545; }
     </style>
 </head>
 
@@ -129,15 +136,12 @@ if ($flash) unset($_SESSION['flash']);
       <?= htmlspecialchars($flash['message']) ?>
     </div>
   <?php endif; ?>
-<!--Header Section Start-->
 <header>
   <nav class="navbar">
-    <!-- Logo -->
     <div class="logo"><img src="image/Logo 1.png" alt="">
     <div class="logo-text">One More Party</div>
     </div>
 
-    <!-- Desktop Links -->
     <div class="nav-links" id="navLinks">
   <a href="index.php" class="nav-link">Home</a>
   <a href="About.php" class="nav-link">About</a>
@@ -151,7 +155,6 @@ if ($flash) unset($_SESSION['flash']);
     <button class="btn-signin" onclick="location.href='Login.php'">Sign In</button>
   <?php endif; ?>
 </div>
-    <!-- Mobile Menu Toggle -->
     <div class="menu-toggle" onclick="toggleMenu()">
       <span></span>
       <span></span>
@@ -159,27 +162,23 @@ if ($flash) unset($_SESSION['flash']);
     </div>
   </nav>
 
-  <!-- Mobile Menu Script -->
   <script>
     function toggleMenu() {
       const navLinks = document.getElementById('navLinks');
       navLinks.classList.toggle('active');
     }
   </script>
-</header>   
-<!-- Hero Section -->
+</header>
 <section class="hero">
   <div>
     <h1>Book Now</h1>
     <p>We turn celebrations into unforgettable experiences.</p>
   </div>
 </section>
-<!-- main Section -->
 <section>
   <div class="container">
     <h2>Book an Event</h2>
     <form id="bookingForm" method="POST" class="booking-form">
-      <!-- Event Type -->
       <div class="form-group">
         <label>Event Type <span class="required">*</span></label>
         <select name="event_type" id="event-type" class="form-control" required>
@@ -192,31 +191,26 @@ if ($flash) unset($_SESSION['flash']);
         </select>
         <div id="event-type-error" class="error-message">Select an event type</div>
       </div>
-      <!-- Event Date -->
       <div class="form-group">
         <label>Event Date <span class="required">*</span></label>
         <input type="date" name="event_date" id="event-date" class="form-control" required>
         <div id="event-date-error" class="error-message">Pick a future date</div>
       </div>
-      <!-- Guests -->
       <div class="form-group">
         <label>Number of Guests <span class="required">*</span></label>
         <input type="number" name="guests" id="guest-count" class="form-control" min="1" required>
         <div id="guest-count-error" class="error-message">Enter guest count</div>
       </div>
-      <!-- Name -->
       <div class="form-group">
         <label>Your Name <span class="required">*</span></label>
         <input type="text" name="name" id="name" class="form-control" required>
         <div id="name-error" class="error-message">Enter your name</div>
       </div>
-      <!-- Email -->
       <div class="form-group">
         <label>Email <span class="required">*</span></label>
         <input type="email" name="email" id="email" class="form-control" required>
         <div id="email-error" class="error-message">Enter valid email</div>
       </div>
-      <!-- Phone & Notes -->
       <div class="form-group">
         <label>Phone Number</label>
         <input type="tel" name="phone" id="phone" class="form-control">
@@ -225,12 +219,10 @@ if ($flash) unset($_SESSION['flash']);
         <label>Additional Details</label>
         <textarea name="notes" id="message" class="form-control"></textarea>
       </div>
-      <button type="submit" id="submitBtn" class="btn" onclick="location.href='Login.php'">Submit Booking</button>
+      <button type="submit" id="submitBtn" class="btn">Submit Booking</button>
     </form>
   </div>
 </section>
-  <!-- Footer omitted… -->
-
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     // Show/hide flash toast
@@ -242,24 +234,67 @@ if ($flash) unset($_SESSION['flash']);
       }
     });
 
-    // Your existing client‑side validation…
+    // Client-side validation for booking form
     $('#bookingForm').on('submit', function(e){
       e.preventDefault();
       let hasErrors = false;
       $('.error-message').removeClass('show');
 
-      // ... validate each field as before ...
-      // If no errors: this.submit()
+      const eventType = $('#event-type').val();
+      const eventDate = $('#event-date').val();
+      const guestCount = $('#guest-count').val();
+      const name = $('#name').val();
+      const email = $('#email').val();
 
-      if (!hasErrors) this.submit();
-      else $('#submitBtn').prop('disabled', false);
+      // Validate Event Type
+      if (eventType === '') {
+        $('#event-type-error').addClass('show');
+        hasErrors = true;
+      }
+
+      // Validate Event Date
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate comparison
+      const selectedDate = new Date(eventDate);
+      selectedDate.setHours(0, 0, 0, 0); // Reset time for accurate comparison
+
+      if (eventDate === '' || selectedDate < today) {
+        $('#event-date-error').text('Pick a future date').addClass('show');
+        hasErrors = true;
+      } else if (selectedDate.getTime() === today.getTime()) { // Check for same day
+        $('#event-date-error').text('Same-day bookings are not allowed.').addClass('show');
+        hasErrors = true;
+      }
+
+      // Validate Guest Count
+      if (guestCount === '' || parseInt(guestCount) < 1) {
+        $('#guest-count-error').addClass('show');
+        hasErrors = true;
+      }
+
+      // Validate Name
+      if (name.trim() === '') {
+        $('#name-error').addClass('show');
+        hasErrors = true;
+      }
+
+      // Validate Email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email.trim() === '' || !emailRegex.test(email)) {
+        $('#email-error').addClass('show');
+        hasErrors = true;
+      }
+
+      if (!hasErrors) {
+          this.submit();
+      } else {
+          $('#submitBtn').prop('disabled', false);
+      }
     });
   </script>
-  <!--Footer Section--> 
-<footer class="footer">
+  <footer class="footer">
   <div class="footer-container">
-    
-    <!-- Column 1: About -->
+
     <div class="footer-column">
       <div class="footer-logo"><img src="image/Logo 1.png" alt="">
         <div class="footer-logo-text">One More Party</div>
@@ -267,13 +302,12 @@ if ($flash) unset($_SESSION['flash']);
       <p class="footer-text">For more information about our events, please check out our social media and subscribe to our YouTube channel. We bring your celebrations to life with creativity, professionalism, and attention to every detail.</p>
       <div class="social-icons">
         <a href="https://www.facebook.com/profile.php?id=61574733720989" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/onemoreparty1/profilecard/?igsh=MXE0bDhuZmlpZHBwMA== " aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/onemoreparty1/profilecard/?igsh=MXE0bDhuZmlpZHBwMA==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://www.tiktok.com/@onemoreparty0?_t=ZS-8wd7C3Nz0Dp&_r=1" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i>
         <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
 
-    <!-- Column 2: Contact -->
     <div class="footer-column">
       <h3>Contact Us</h3>
       <div class="contact-info">
@@ -284,7 +318,6 @@ if ($flash) unset($_SESSION['flash']);
       </div>
     </div>
 
-    <!-- Column 3: Quick Links -->
     <div class="footer-column">
       <h3>Quick Links</h3>
       <div class="contact-info">
@@ -297,7 +330,6 @@ if ($flash) unset($_SESSION['flash']);
       </div>
     </div>
 
-    <!-- Column 4: Newsletter -->
     <div class="footer-column">
       <h3>Stay Updated</h3>
       <p class="cta-subscribe">Subscribe to our newsletter for event inspiration and updates!</p>
@@ -309,7 +341,6 @@ if ($flash) unset($_SESSION['flash']);
 
   </div>
 
-  <!-- Footer Bottom -->
   <div class="footer-bottom">
     © 2023 One More Party. All rights reserved. Designed with 💖 for unforgettable events.
   </div>
