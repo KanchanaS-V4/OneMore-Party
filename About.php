@@ -149,12 +149,6 @@ aria-label="Chat on WhatsApp"
                 <div class="member-info">
                     <h3 class="member-name">Thilina Kowmudu</h3>
                     <p class="member-designation">General Manager</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
                 </div>
             </div>
 
@@ -165,12 +159,6 @@ aria-label="Chat on WhatsApp"
                 <div class="member-info">
                     <h3 class="member-name">Isuru Lakshan</h3>
                     <p class="member-designation">Operations Executive</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
                 </div>
             </div>
         </div>

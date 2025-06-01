@@ -476,17 +476,6 @@ color: #ea1538;
     margin-bottom: 15px;
 }
 
-.social-links a {
-    color: #555;
-    margin: 0 8px;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: #007bff;
-}
-
 
 /*Footer Section*/
 .footer {
