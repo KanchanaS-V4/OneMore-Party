@@ -70,6 +70,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
   <div class="login-container">
+    <!-- Logo Section -->
+    <div class="logo">
+      <img src="images/logo.png" alt="One More Party Logo" />
+    </div>
+    <!-- Title -->
     <h2 class="login-title">Login</h2>
 
     <?php if (isset($_GET['error'])): ?>

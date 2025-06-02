@@ -31,6 +31,16 @@ body {
 .form-img{
     max-width: 100%;
 }
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo img {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+  }
+  
 .login-title {
     font-size: 2rem;
     color: #333;

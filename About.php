@@ -94,7 +94,7 @@ aria-label="Chat on WhatsApp"
     <div class="about-container1">
       <div class="about-content1">
         <h2>Our Mission</h2>
-        <p>AAt One More Party, we specialize in transforming life’s special moments into unforgettable celebrations. Our mission is to bring your unique vision to life with creativity, precision, and a personal touch. Whether it's a birthday, wedding, or corporate event, 
+        <p>At One More Party, we specialize in transforming life’s special moments into unforgettable celebrations. Our mission is to bring your unique vision to life with creativity, precision, and a personal touch. Whether it's a birthday, wedding, or corporate event, 
           we combine thoughtful design, expert planning, and seamless execution to deliver experiences that truly shine.  </p>
         <p>From decor and entertainment to catering and coordination, every detail is handled with care and professionalism. We’re passionate about creating joyful, stress-free events that leave lasting impressions. 
           Let us take the lead, so you can relax, celebrate, and make beautiful memories with those you love.
@@ -113,11 +113,10 @@ aria-label="Chat on WhatsApp"
         </div>
         <div class="about-content2">
           <h2>Our Vision</h2>
-          <p>Our vision is to become a globally respected leader in the cosmetics and personal care industry, renowned for setting new standards in sustainability, inclusivity, and ethical responsibility. We are committed to creating high-quality, 
-            cruelty-free products that cater to diverse beauty needs 
-            while minimizing our environmental impact.</p>
-          <p>By combining innovation, safety, and natural ingredients, we aim to enhance the confidence and well-being of our customers around the world. Through continuous improvement and a deep respect for people and the planet, we aspire
-             to inspire positive change in the beauty industry and beyond.</p>
+          <p>Our vision is to become the leading event planning company in Dubai, renowned for our ability to transform life's most cherished moments into extraordinary and unforgettable celebrations.
+             We strive to set the standard for excellence in the event planning industry by combining innovative creativity, meticulous attention to detail, and a warm, personalized approach.</p>
+          <p> Through our commitment to delivering unique experiences 
+             tailored to each client’s dreams and desires, we aim to create lasting memories that exceed expectations and leave a lasting impression on all who attend.</p>
           
         </div>
       </div>
@@ -201,7 +200,6 @@ aria-label="Chat on WhatsApp"
           <a href="https://www.facebook.com/profile.php?id=61574733720989" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="https://www.instagram.com/onemoreparty1/profilecard/?igsh=MXE0bDhuZmlpZHBwMA== " aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           <a href="https://www.tiktok.com/@onemoreparty0?_t=ZS-8wd7C3Nz0Dp&_r=1" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i>
-          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
 
