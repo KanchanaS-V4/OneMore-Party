@@ -108,6 +108,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php endif; ?>
 
 <div class="signup-container">
+    <!-- Logo Section -->
+    <div class="logo">
+      <img src="image/Logo 1.png" alt="One More Party Logo" />
+    </div>
+    <!-- Title -->
     <h2 class="signup-title">Sign Up</h2>
     <form action="signup.php" method="post">
         <div class="form-group">
