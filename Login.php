@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="login-container">
     <!-- Logo Section -->
     <div class="logo">
-      <img src="images/logo.png" alt="One More Party Logo" />
+      <img src="image/Logo 1.png" alt="One More Party Logo" />
     </div>
     <!-- Title -->
     <h2 class="login-title">Login</h2>
