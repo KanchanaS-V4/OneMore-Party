@@ -186,20 +186,21 @@ aria-label="Chat on WhatsApp"
 </script>
 
 
-<!--Footer Section--> 
-<footer class="footer">
+  <!--Footer Section--> 
+  <footer class="footer">
     <div class="footer-container">
       
       <!-- Column 1: About -->
       <div class="footer-column">
         <div class="footer-logo"><img src="image/Logo 1.png" alt="">
           <div class="footer-logo-text">One More Party</div>
-        </div>
+          </div>
         <p class="footer-text">For more information about our events, please check out our social media and subscribe to our YouTube channel. We bring your celebrations to life with creativity, professionalism, and attention to every detail.</p>
         <div class="social-icons">
-          <a href="https://www.facebook.com/profile.php?id=61574733720989" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/onemoreparty1/profilecard/?igsh=MXE0bDhuZmlpZHBwMA== " aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@onemoreparty0?_t=ZS-8wd7C3Nz0Dp&_r=1" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i>
+        <a href="https://www.facebook.com/profile.php?id=61574733720989" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/onemoreparty1/profilecard/?igsh=MXE0bDhuZmlpZHBwMA== " aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@onemoreparty0?_t=ZS-8wd7C3Nz0Dp&_r=1" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
 
@@ -219,9 +220,9 @@ aria-label="Chat on WhatsApp"
         <h3>Quick Links</h3>
         <div class="contact-info">
           <a href="Index.php">Home</a>
-          <a href="#">About Us</a>
+          <a href="About.php">About Us</a>
           <a href="Gallery.php">Gallery</a>
-          <a href="Service.php">Services</a>
+          <a href="#">Services</a>
           <a href="Contact.php">Contact Us</a>
           <a href="Booking.php">Book Now</a>
         </div>
@@ -244,7 +245,5 @@ aria-label="Chat on WhatsApp"
       © 2023 One More Party. All rights reserved. Designed with 💖 for unforgettable events.
     </div>
   </footer>
-
 </body>
-</head>
 </html>

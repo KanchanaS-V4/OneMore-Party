@@ -246,63 +246,64 @@ if (isset($_SESSION['flash_message'])) {
     });
   </script>
  
-<!--Footer Section--> 
-<footer class="footer">
-  <div class="footer-container">
-    
-    <!-- Column 1: About -->
-    <div class="footer-column">
-      <div class="footer-logo"><img src="image/Logo 1.png" alt="">
-        <div class="footer-logo-text">One More Party</div>
-      </div>
-      <p class="footer-text">For more information about our events, please check out our social media and subscribe to our YouTube channel. We bring your celebrations to life with creativity, professionalism, and attention to every detail.</p>
-      <div class="social-icons">
+  <!--Footer Section--> 
+  <footer class="footer">
+    <div class="footer-container">
+      
+      <!-- Column 1: About -->
+      <div class="footer-column">
+        <div class="footer-logo"><img src="image/Logo 1.png" alt="">
+          <div class="footer-logo-text">One More Party</div>
+          </div>
+        <p class="footer-text">For more information about our events, please check out our social media and subscribe to our YouTube channel. We bring your celebrations to life with creativity, professionalism, and attention to every detail.</p>
+        <div class="social-icons">
         <a href="https://www.facebook.com/profile.php?id=61574733720989" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.instagram.com/onemoreparty1/profilecard/?igsh=MXE0bDhuZmlpZHBwMA== " aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://www.tiktok.com/@onemoreparty0?_t=ZS-8wd7C3Nz0Dp&_r=1" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
-    </div>
 
-    <!-- Column 2: Contact -->
-    <div class="footer-column">
-      <h3>Contact Us</h3>
-      <div class="contact-info">
-        <a href="mailto:events@onemoreparty.com">operations@onemore-bloom.com</a>
-        <a href="tel:+971 5274 48643">+971 5274 48643</a>
-        <a href="#">Rolex Towers, 9th Floor Sheikh Zayed Road Near Financial Center Metro Station Dubai, UAE
-        </a>
+      <!-- Column 2: Contact -->
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <div class="contact-info">
+          <a href="mailto:events@onemoreparty.com">operations@onemore-bloom.com</a>
+          <a href="tel:+971 5274 48643">+971 5274 48643</a>
+          <a href="#">Rolex Towers, 9th Floor Sheikh Zayed Road Near Financial Center Metro Station Dubai, UAE
+          </a>
+        </div>
       </div>
-    </div>
 
-    <!-- Column 3: Quick Links -->
-    <div class="footer-column">
-      <h3>Quick Links</h3>
-      <div class="contact-info">
-        <a href="#">Home</a>
-        <a href="About.php">About Us</a>
-        <a href="Gallery.php">Gallery</a>
-        <a href="Service.php">Services</a>
-        <a href="Contact.php">Contact Us</a>
-        <a href="Booking.php">Book Now</a>
+      <!-- Column 3: Quick Links -->
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <div class="contact-info">
+          <a href="Index.php">Home</a>
+          <a href="About.php">About Us</a>
+          <a href="Gallery.php">Gallery</a>
+          <a href="#">Services</a>
+          <a href="Contact.php">Contact Us</a>
+          <a href="Booking.php">Book Now</a>
+        </div>
       </div>
-    </div>
-    <!-- Column 4: Newsletter -->
-    <div class="footer-column">
-      <h3>Stay Updated</h3>
-      <p class="cta-subscribe">Subscribe to our newsletter for event inspiration and updates!</p>
+
+      <!-- Column 4: Newsletter -->
+      <div class="footer-column">
+        <h3>Stay Updated</h3>
+        <p class="cta-subscribe">Subscribe to our newsletter for event inspiration and updates!</p>
       <form class="newsletter-form" action="subscribe.php" method="POST">
       <input type="email" name="email" placeholder="Your Email Address" required />
         <button type="submit">Subscribe</button>
       </form>
+      </div>
+
     </div>
 
-  </div>
-
-  <!-- Footer Bottom -->
-  <div class="footer-bottom">
-    © 2023 One More Party. All rights reserved. Designed with 💖 for unforgettable events.
-  </div>
-</footer>
-
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      © 2023 One More Party. All rights reserved. Designed with 💖 for unforgettable events.
+    </div>
+  </footer>
 </body>
 </html>
