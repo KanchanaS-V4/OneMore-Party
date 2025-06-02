@@ -243,13 +243,13 @@ h4 {
 }
 
 .animated-text {
-    font-size: 5.2rem;
+    font-size: 3.2rem;
     font-weight: 300;
     line-height: 1.4;
     opacity: 0;
     transform: translateY(40px);
     animation: fadeInUp 1.5s ease-out forwards;
-    color: #ffffff;
+    color: #411534;
 }
 
 .animated-text span {
