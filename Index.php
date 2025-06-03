@@ -63,8 +63,7 @@ if (isset($_SESSION['flash_message'])) {
     <section class="hero">
         <div class="hero-content">
             <h1 class="animated-text">
-              Let us bring your event to life
-                on time, on budget
+              Let us bring your event to life on time, on budget
               and beyond expectations
             </h1>
             <button class="button" onclick="window.location.href='Contact.php'">Plan Your Event Now</button>
