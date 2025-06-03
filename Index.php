@@ -159,7 +159,7 @@ if (isset($_SESSION['flash_message'])) {
       <!-- Service Card 3 -->
       <div class="service-card">
         <div class="service-image">
-          <img src="image/Floral 1.jpg" alt="Floral Arrangements">
+          <img src="image/Home floral.jpg" alt="Floral Arrangements">
         </div>
         <div class="service-content">
           <h3 class="service-title">Floral Arrangements</h3>
