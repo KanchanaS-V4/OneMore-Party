@@ -280,20 +280,27 @@ color: #ea1538;
 }
 
 /*main Section*/
-.Contact-bg{
-  height: 60vh;
+.Contact-bg {
+  position: relative;
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                ;
-    color: white;
-  background-image: url(image/Contact\ img3.png);
-  background-attachment: fixed;
+  url('image/New\ Contact.png'); 
+  background-size: cover; 
+  background-position: center center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  height: 70vh; 
+  color: white; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
   text-align: center;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: 10px;
+  padding: 0 10%; 
+  overflow: hidden; 
+  border-radius: 0 0 12px 12px; 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  flex-direction: column; /
+  justify-content: center; 
+  position: relative;
 }
 .Contact-bg h3{
   font-size: 1.3rem;

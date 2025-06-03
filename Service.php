@@ -120,7 +120,7 @@ aria-label="Chat on WhatsApp"
 
       <!-- Service 4 -->
       <div class="service-card">
-        <img src="image/Our Service 2.jpg" alt="Photography" class="service-image">
+        <img src="image/New Gallery2.jpg" alt="Photography" class="service-image">
         <div class="service-content">
           <div class="service-icon"><i class="fas fa-camera-retro"></i></div>
           <div class="service-title">Photography & Videography</div>

@@ -261,22 +261,30 @@
   }
 /* Hero Section*/
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                url('https://images.unsplash.com/photo-1515525428862-9f0a2c7dd912?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
-    color: white;
-    background-image: url(image/Service\ Img.png);
-    background-attachment: fixed;
-    height: 60vh;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 10%;
+  position: relative;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+  url('image/New\ Service.png'); 
+  background-size: cover; 
+  background-position: center center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  height: 70vh; 
+  color: white; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-align: center;
+  padding: 0 10%; 
+  overflow: hidden; 
+  border-radius: 0 0 12px 12px; 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  flex-direction: column; /
+  justify-content: center; 
+  position: relative;
   }
 
   .hero h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: 20px;
     opacity: 0;
     animation: fadeInUp 1s ease-out forwards;
@@ -289,7 +297,7 @@
     opacity: 0;
     animation: fadeInUp 1s ease-out forwards;
     animation-delay: 0.5s;
-    color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
   }
   /* Main Title */
 .section-title {

@@ -123,7 +123,10 @@ $isLoggedIn = isset($_SESSION['user_id']);
       <div class="card Dec">
         <img src="image/Img Gallery Dr1.jpg" alt="Decorations & Theme Styling" onclick="openModal(this.src)">
       </div>
-
+           <!-- Photo -->
+           <div class="card Photo ">
+            <img src="image/Photography 2.jpg" alt="Photography & Videography" onclick="openModal(this.src)">
+          </div>
       <!-- Floral -->
       <div class="card floral">
         <img src="image/Gallery C2.jpg" alt="Floral,Custom Cakes & Dessert Tables" onclick="openModal(this.src)">
@@ -137,16 +140,22 @@ $isLoggedIn = isset($_SESSION['user_id']);
       <div class="card entertainment">
         <img src="image/Gallery E.jpg" alt="Entertainment" onclick="openModal(this.src)">
       </div>
+      <div class="card Rentals">
+        <img src="image/GalleryN2.jpg" alt="Equipment & Furniture Rentals" onclick="openModal(this.src)">
+      </div>
 
       <!-- Rentals -->
       <div class="card Rentals">
         <img src="image/Gallery R2.jpg" alt="Equipment & Furniture Rentals" onclick="openModal(this.src)">
       </div>
-
     <!-- Lightbox Modal -->
     <div id="imageModal" class="modal" onclick="closeModal(event)">
       <span class="close" onclick="closeModal()">&times;</span>
       <img class="modal-content" id="modalImage" />
+    </div>
+    <!-- Dec -->
+         <div class="card Dec">
+          <img src="image/GalleryN.jpg" alt="Decorations & Theme Styling" onclick="openModal(this.src)">
     </div>
     <!-- Dec -->
       <div class="card Dec">
@@ -157,9 +166,14 @@ $isLoggedIn = isset($_SESSION['user_id']);
       <div class="card floral">
         <img src="image/Gallery C1.jpg" alt="Floral,Custom Cakes & Dessert Tables" onclick="openModal(this.src)">
       </div>
+    
        <!-- Photo -->
        <div class="card Photo ">
         <img src="image/Gallery W2.jpg" alt="Photography & Videography" onclick="openModal(this.src)">
+      </div>
+      <!-- Floral -->
+      <div class="card floral">
+        <img src="image/GalleryN1.jpg" alt="Floral,Custom Cakes & Dessert Tables" onclick="openModal(this.src)">
       </div>
   </section>
 

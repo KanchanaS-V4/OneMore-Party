@@ -84,20 +84,20 @@ if (isset($_SESSION['flash_message'])) {
   </a>
 <!--About Section Start-->
 <section class="about-section">
-    <div class="about-content">
-      <h2 class="About-title">About Us</h2>
-      <div class="about-text">
-        At One More Party, we create unforgettable celebrations with creativity, professionalism, and attention to detail. From birthdays and weddings to corporate 
-        and themed events, we offer everything under one roof—decor, floral arrangements, custom cakes, photography, rentals, and more. 
-        Our experienced team works closely with you to bring your vision to life, ensuring a stress-free, stylish, and affordable event.
-      </div>
-      <button class="about-button" onclick="window.location.href='About.php'">Get in Touch</button>
+  <div class="about-content">
+    <h2 class="About-title">About Us</h2>
+    <div class="about-text">
+      At One More Party, we create unforgettable celebrations with creativity, professionalism, and attention to detail. From birthdays and weddings to corporate 
+      and themed events, we offer everything under one roof—decor, floral arrangements, custom cakes, photography, rentals, and more. 
+      Our experienced team works closely with you to bring your vision to life, ensuring a stress-free, stylish, and affordable event.
     </div>
+    <button class="about-button" onclick="window.location.href='About.php'">Get in Touch</button>
+  </div>
 
-    <div class="about-image">
-      <img src="https://images.unsplash.com/photo-1519337265831-281ec6cc8514?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Event Planning Team">
-    </div>
-  </section>
+  <div class="about-image">
+    <img src="https://images.unsplash.com/photo-1519337265831-281ec6cc8514?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Event Planning Team">
+  </div>
+</section>
 
   <!-- Counter Animation Script -->
   <script>

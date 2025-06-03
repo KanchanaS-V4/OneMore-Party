@@ -200,23 +200,29 @@
     color: white;
     border: 1px solid white;
   } 
-   /* Hero Section */
- .hero {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                url('https://images.unsplash.com/photo-1515525428862-9f0a2c7dd912?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') ;
-    color: white;
-    background-image: url(image/Gallery\ IMG.png);
-    background-attachment: fixed;
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 10%;
-  }
+/* Hero Section */
+.hero {
+  position: relative;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+  url('image/New\ Gallery.png'); 
+  background-size: cover; 
+  background-position: center center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  height: 70vh; 
+  color: white; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-align: center;
+  padding: 0 10%; 
+  overflow: hidden; 
+  border-radius: 0 0 12px 12px; 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
 
   .hero h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: 20px;
     opacity: 0;
     animation: fadeInUp 1s ease-out forwards;
@@ -224,11 +230,13 @@
 
   .hero p {
     font-size: 1.2rem;
+    font-weight: 300;
     max-width: 700px;
     margin: 0 auto;
     opacity: 0;
     animation: fadeInUp 1s ease-out forwards;
     animation-delay: 0.5s;
+    color: #ffffff;
   }
   /* WhatsApp Chat Button */
   .whatsapp-chat {
@@ -371,7 +379,8 @@
 
   .card img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
     cursor: pointer;
     transition: transform 0.3s ease;
