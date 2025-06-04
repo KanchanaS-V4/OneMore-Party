@@ -201,7 +201,7 @@ if ($flash) unset($_SESSION['flash']);
           <option value=""></option>
           <option value="wedding">Wedding</option>
           <option value="corporate">Corporate Event</option>
-          <option value="party">Party</option>
+          <option value="party">Birthday Party</option>
           <option value="conference">Conference</option>
           <option value="other">Other</option>
         </select>
