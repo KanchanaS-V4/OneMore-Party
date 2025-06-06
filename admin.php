@@ -1,10 +1,28 @@
 <?php
 session_start();
-require_once 'dbh.inc.php'; // Make sure this returns a valid mysqli $conn
+require_once 'dbh.inc.php'; // Ensure this returns a valid mysqli $conn
 
 if (!isset($_SESSION['user_email']) || $_SESSION['user_email'] !== 'admin@gmail.com') {
     header("Location: Login.php");
     exit();
+}
+
+// Automatically delete old bookings (older than 5 days from event_date)
+$conn->query("DELETE FROM bookings WHERE event_date < CURDATE() - INTERVAL 5 DAY");
+
+// Automatically delete old contact messages (older than 5 days from submitted_at)
+$conn->query("DELETE FROM contact_messages WHERE submitted_at < NOW() - INTERVAL 5 DAY");
+
+
+// Handle deletion
+if (isset($_GET['delete_booking'])) {
+    $id = intval($_GET['delete_booking']);
+    $conn->query("DELETE FROM bookings WHERE id = $id");
+}
+
+if (isset($_GET['delete_message'])) {
+    $id = intval($_GET['delete_message']);
+    $conn->query("DELETE FROM contact_messages WHERE id = $id");
 }
 
 // Fetch bookings
@@ -15,7 +33,7 @@ if (!$bookings_result) {
 }
 
 // Fetch contact messages
-$contact_sql = "SELECT * FROM contact_messages ORDER BY submitted_at DESC";
+$contact_sql = "SELECT * FROM contact_messages ORDER BY id DESC";
 $contact_result = $conn->query($contact_sql);
 if (!$contact_result) {
     die("Failed to fetch contact messages: " . $conn->error);
@@ -75,6 +93,14 @@ if (!$contact_result) {
     tr:hover {
       background-color: #e9f5ff;
     }
+    .delete-btn {
+      color: #dc3545;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .delete-btn:hover {
+      text-decoration: underline;
+    }
     @media (max-width: 768px) {
       table, thead, tbody, th, td, tr {
         display: block;
@@ -118,6 +144,7 @@ if (!$contact_result) {
         <th>Event Date</th>
         <th>Guests</th>
         <th>Notes</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -130,6 +157,9 @@ if (!$contact_result) {
         <td data-label="Event Date"><?php echo htmlspecialchars($booking['event_date']); ?></td>
         <td data-label="Guests"><?php echo htmlspecialchars($booking['guests']); ?></td>
         <td data-label="Notes"><?php echo htmlspecialchars($booking['notes']); ?></td>
+        <td data-label="Action">
+          <a class="delete-btn" href="?delete_booking=<?php echo $booking['id']; ?>" onclick="return confirm('Are you sure you want to delete this booking?');">Delete</a>
+        </td>
       </tr>
       <?php endwhile; ?>
     </tbody>
@@ -144,24 +174,25 @@ if (!$contact_result) {
       <th>Email</th>
       <th>Phone</th>
       <th>Message</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
-    <?php
-    $contact_sql = "SELECT * FROM contact_messages ORDER BY id DESC";
-    $contact_result = $conn->query($contact_sql);
-    if ($contact_result && $contact_result->num_rows > 0):
-      while ($row = $contact_result->fetch_assoc()):
-    ?>
-    <tr>
-      <td data-label="First Name"><?php echo htmlspecialchars($row['first_name']); ?></td>
-      <td data-label="Last Name"><?php echo htmlspecialchars($row['last_name']); ?></td>
-      <td data-label="Email"><?php echo htmlspecialchars($row['email']); ?></td>
-      <td data-label="Phone"><?php echo htmlspecialchars($row['phone']); ?></td>
-      <td data-label="Message"><?php echo nl2br(htmlspecialchars($row['message'])); ?></td>
-    </tr>
-    <?php endwhile; else: ?>
-    <tr><td colspan="5">No contact messages found.</td></tr>
+    <?php if ($contact_result->num_rows > 0): ?>
+      <?php while ($row = $contact_result->fetch_assoc()): ?>
+      <tr>
+        <td data-label="First Name"><?php echo htmlspecialchars($row['first_name']); ?></td>
+        <td data-label="Last Name"><?php echo htmlspecialchars($row['last_name']); ?></td>
+        <td data-label="Email"><?php echo htmlspecialchars($row['email']); ?></td>
+        <td data-label="Phone"><?php echo htmlspecialchars($row['phone']); ?></td>
+        <td data-label="Message"><?php echo nl2br(htmlspecialchars($row['message'])); ?></td>
+        <td data-label="Action">
+          <a class="delete-btn" href="?delete_message=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure you want to delete this message?');">Delete</a>
+        </td>
+      </tr>
+      <?php endwhile; ?>
+    <?php else: ?>
+      <tr><td colspan="6">No contact messages found.</td></tr>
     <?php endif; ?>
   </tbody>
 </table>
