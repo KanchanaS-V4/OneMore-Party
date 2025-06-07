@@ -7,12 +7,6 @@ if (!isset($_SESSION['user_email']) || $_SESSION['user_email'] !== 'admin@gmail.
     exit();
 }
 
-// Automatically delete old bookings (older than 5 days from event_date)
-$conn->query("DELETE FROM bookings WHERE event_date < CURDATE() - INTERVAL 5 DAY");
-
-// Automatically delete old contact messages (older than 5 days from submitted_at)
-$conn->query("DELETE FROM contact_messages WHERE submitted_at < NOW() - INTERVAL 5 DAY");
-
 
 // Handle deletion
 if (isset($_GET['delete_booking'])) {
