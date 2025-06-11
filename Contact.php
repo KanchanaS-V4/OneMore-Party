@@ -122,7 +122,7 @@ aria-label="Chat on WhatsApp"
           <div class="Contact-item">
               <span1><i class="fa-solid fa-location-dot"></i></span1>
               <span1>Address</span1>
-              <span1 class="text">203 Patrik Street North West coast of Scotland</span1>
+              <span1 class="text">Rolex Towers, 9th Floor Sheikh Zayed Road Near Financial Center Metro Station Dubai, UAE</span1>
           </div>
           <div class="Contact-item">
               <span1><i class="fa-solid fa-mobile-screen-button"></i></span1>
@@ -132,7 +132,7 @@ aria-label="Chat on WhatsApp"
           <div class="Contact-item">
               <span1><i class="fa-regular fa-envelope"></i></span1>
               <span1>E-mail</span1>
-              <span1 class="text">MalcolmLismore@gmail.com</span1>
+              <span1 class="text">operations@onemore-bloom.com</span1>
           </div>
           <div class="Contact-item">
               <span1><i class="fa-regular fa-clock"></i></span1>
