@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     if (createUser($conn, $name, $email, $hashedPassword)) {
-        header("Location: login.php?signup=success");
+        header("Location: Login.php?signup=success");
         exit();
     } else {
         redirectWithError('signup.php', 'signup_failed');
@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit" class="signup-button">Sign Up</button>
     </form>
     <div class="login-link">
-        <p class="account">Already have an account? <a href="login.php">Log in Now</a></p>
+        <p class="account">Already have an account? <a href="Login.php">Log in Now</a></p>
     </div>
 </div>
 </body>
