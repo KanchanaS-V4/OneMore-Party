@@ -15,6 +15,9 @@ if (isset($_SESSION['flash_message'])) {
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Home - One More Party</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="image/Logo 1.png" />
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/8a3d3b8cd1.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
 </head>
