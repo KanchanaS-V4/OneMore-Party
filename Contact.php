@@ -141,7 +141,7 @@ aria-label="Chat on WhatsApp"
           </div>
       </div>
       <div class="Contact-form">
-          <form action="Contact.Php" method="post">
+          <form action="Contact.php" method="post">
               <div>
                   <input type="text" name="FirstName" class="form-control" placeholder="First Name" required>
                   <input type="text" name="Lastname" class="form-control" placeholder="Last Name" required>

@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <!-- Title -->
     <h2 class="signup-title">Sign Up</h2>
-    <form action="signup.php" method="post">
+    <form action="SignUp.php" method="post">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name">
